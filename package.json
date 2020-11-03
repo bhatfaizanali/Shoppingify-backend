@@ -1,0 +1,31 @@
+{
+  "name": "shoppingify-backend",
+  "version": "1.0.0",
+  "description": "Backend repo for shoppingify",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhatfaizanali/Shoppingify-backend.git"
+  },
+  "author": "Faizan Bhat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhatfaizanali/Shoppingify-backend/issues"
+  },
+  "homepage": "https://github.com/bhatfaizanali/Shoppingify-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "date-fns": "^2.16.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
