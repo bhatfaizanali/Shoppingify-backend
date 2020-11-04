@@ -4,7 +4,6 @@
   "description": "Backend repo for shoppingify",
   "main": "server.js",
   "scripts": {
-    "dbInit": "nodemon dbInit.js",
     "start": "nodemon server.js"
   },
   "repository": {
