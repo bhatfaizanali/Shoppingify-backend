@@ -11,14 +11,14 @@ module.exports = sequelize.define(
       primaryKey: true,
     },
     item_name: {
-      type: Sequelize.STRING(25),
+      type: Sequelize.STRING(100),
       allowNull: false,
     },
     item_note: {
       type: Sequelize.TEXT,
     },
     imgURL: {
-      type: Sequelize.STRING(25),
+      type: Sequelize.STRING(100),
     },
     category_id: {
       type: Sequelize.INTEGER(11),

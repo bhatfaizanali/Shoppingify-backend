@@ -17,7 +17,7 @@ module.exports = {
         type: Sequelize.STRING(25),
         allowNull: false,
       },
-      item_date: {
+      list_date: {
         type: Sequelize.DATE,
         allowNull: false,
       },

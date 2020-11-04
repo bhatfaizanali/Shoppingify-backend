@@ -4,8 +4,8 @@
   "description": "Backend repo for shoppingify",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "nodemon server.js"
+    "dbInit": "nodemon dbInit.js",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
+    "faker": "^5.1.0",
     "nodemon": "^2.0.6"
   }
 }
