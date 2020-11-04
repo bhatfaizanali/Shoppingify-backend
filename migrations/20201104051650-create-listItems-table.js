@@ -9,6 +9,16 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
+      item_id: {
+        type: Sequelize.INTEGER(11),
+        references: { model: "items", key: "item_id" },
+        allowNull: false,
+      },
+      list_id: {
+        type: Sequelize.INTEGER(11),
+        references: { model: "lists", key: "list_id" },
+        allowNull: false,
+      },
       qty: {
         type: Sequelize.INTEGER(11),
         allowNull: false,

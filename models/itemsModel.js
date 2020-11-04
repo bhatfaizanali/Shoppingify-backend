@@ -24,12 +24,6 @@ module.exports = (sequelize, Sequelize) => {
     },
     { timestamps: false },
   );
-  Items.associate = (models) => {
-    Items.belongsTo(models.Categories, {
-      as: "Item",
-      foreignKey: "category_id",
-    });
-  };
 
   return Items;
 };
