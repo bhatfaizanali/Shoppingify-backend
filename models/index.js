@@ -1,22 +1,29 @@
+const Sequelize = require("sequelize");
 const sequelize = require("../connection");
-const categories = require("./categoriesModel");
-const items = require("./itemsModel");
-const lists = require("./listsModel");
-const listItems = require("./listItemsModel");
 
-categories.hasMany(items, {
+const db = {};
+
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+
+db.categories = require("./categoriesModel")(sequelize, Sequelize);
+db.items = require("./itemsModel")(sequelize, Sequelize);
+db.lists = require("./listsModel")(sequelize, Sequelize);
+db.listItems = require("./listItemsModel")(sequelize, Sequelize);
+
+db.categories.hasMany(db.items, {
   as: "Category",
   foreignKey: "category_id",
 });
-items.belongsTo(categories, {
+db.items.belongsTo(db.categories, {
   as: "Item",
   foreignKey: "category_id",
 });
-lists.hasMany(listItems, {
+db.lists.hasMany(db.listItems, {
   as: "List",
   foreignKey: "list_id",
 });
-listItems.belongsTo(items, {
+db.listItems.belongsTo(db.items, {
   as: "ListItem",
   foreignKey: "item_id",
 });
@@ -25,10 +32,4 @@ sequelize.sync({ force: true }).then(() => {
   console.log(`Database & tables created!`);
 });
 
-module.exports = {
-  categories,
-  items,
-  lists,
-  listItems,
-  sequelize,
-};
+module.exports = db;
