@@ -1,9 +1,9 @@
-import { HOST, USER, PASSWORD, DB, dialect } from "./config/db.config";
+const db = require("./config/db.config");
 const Sequelize = require("sequelize");
 
-const sequelize = new Sequelize(DB, USER, PASSWORD, {
-  host: HOST,
-  dialect,
+const sequelize = new Sequelize(db.DB, db.USER, db.PASSWORD, {
+  host: db.HOST,
+  dialect: db.dialect,
 });
 
 module.exports = sequelize;
