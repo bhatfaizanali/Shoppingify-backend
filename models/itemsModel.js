@@ -21,12 +21,15 @@ module.exports = (sequelize, Sequelize) => {
       imgURL: {
         type: Sequelize.STRING(100),
       },
-      category_id: {
-        type: Sequelize.INTEGER(11),
-        allowNull: false,
-      },
     },
     { timestamps: false },
   );
+  Items.associate = (models) => {
+    Items.belongsTo(models.Categories, {
+      as: "Item",
+      foreignKey: "category_id",
+    });
+  };
+
   return Items;
 };

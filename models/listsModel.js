@@ -26,5 +26,11 @@ module.exports = (sequelize, Sequelize) => {
     },
     { timestamps: false },
   );
+  Lists.associate = (models) => {
+    Lists.hasMany(models.ListItems, {
+      as: "List",
+      foreignKey: "list_id",
+    });
+  };
   return Lists;
 };

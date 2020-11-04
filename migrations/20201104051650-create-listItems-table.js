@@ -9,14 +9,6 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
-      item_id: {
-        type: Sequelize.INTEGER(11),
-        allowNull: false,
-      },
-      list_id: {
-        type: Sequelize.INTEGER(11),
-        allowNull: false,
-      },
       qty: {
         type: Sequelize.INTEGER(11),
         allowNull: false,

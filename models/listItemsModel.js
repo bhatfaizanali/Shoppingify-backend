@@ -11,14 +11,6 @@ module.exports = (sequelize, Sequelize) => {
         autoIncrement: true,
         primaryKey: true,
       },
-      item_id: {
-        type: Sequelize.INTEGER(11),
-        allowNull: false,
-      },
-      list_id: {
-        type: Sequelize.INTEGER(11),
-        allowNull: false,
-      },
       qty: {
         type: Sequelize.INTEGER(11),
         allowNull: false,
@@ -30,5 +22,11 @@ module.exports = (sequelize, Sequelize) => {
     },
     { timestamps: false },
   );
+  ListItems.associate = (models) => {
+    ListItems.belongsTo(models.Items, {
+      as: "Item",
+      foreignKey: "category_id",
+    });
+  };
   return ListItems;
 };

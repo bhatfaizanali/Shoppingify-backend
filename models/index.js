@@ -11,23 +11,6 @@ db.items = require("./itemsModel")(sequelize, Sequelize);
 db.lists = require("./listsModel")(sequelize, Sequelize);
 db.listItems = require("./listItemsModel")(sequelize, Sequelize);
 
-db.categories.hasMany(db.items, {
-  as: "Category",
-  foreignKey: "category_id",
-});
-db.items.belongsTo(db.categories, {
-  as: "Item",
-  foreignKey: "category_id",
-});
-db.lists.hasMany(db.listItems, {
-  as: "List",
-  foreignKey: "list_id",
-});
-db.listItems.belongsTo(db.items, {
-  as: "ListItem",
-  foreignKey: "item_id",
-});
-
 sequelize.sync({ force: true }).then(() => {
   console.log(`Database & tables created!`);
 });
