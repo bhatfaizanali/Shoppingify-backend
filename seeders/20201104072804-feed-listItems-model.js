@@ -7,37 +7,37 @@ module.exports = {
       "listItems",
       [
         {
-          item_id: 17,
+          item_id: 1,
           list_id: 1,
           qty: faker.random.number(),
           bought: true,
         },
         {
-          item_id: 18,
+          item_id: 2,
           list_id: 1,
           qty: faker.random.number(),
           bought: true,
         },
         {
-          item_id: 19,
+          item_id: 3,
           list_id: 1,
           qty: faker.random.number(),
           bought: false,
         },
         {
-          item_id: 20,
+          item_id: 4,
           list_id: 2,
           qty: faker.random.number(),
           bought: true,
         },
         {
-          item_id: 21,
+          item_id: 5,
           list_id: 2,
           qty: faker.random.number(),
           bought: false,
         },
         {
-          item_id: 22,
+          item_id: 6,
           list_id: 2,
           qty: faker.random.number(),
           bought: true,

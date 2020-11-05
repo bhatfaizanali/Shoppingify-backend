@@ -19,10 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const db = require("./models");
 db.sequelize.sync();
 
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to application." });
-});
+app.use("/", require("./routes/homeRoute"));
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
