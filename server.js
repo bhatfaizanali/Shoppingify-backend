@@ -16,9 +16,8 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use("/", require("./routes/categoriesRoute"));
+app.use("/categories", require("./routes/categoriesRoute"));
 app.use("/items", require("./routes/itemsRoute"));
-app.use("/items/:id", require("./routes/itemDetailsRoute"));
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

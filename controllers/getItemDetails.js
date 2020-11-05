@@ -3,8 +3,7 @@ const Items = db.items;
 const Op = db.Sequelize.Op;
 
 exports.findAll = (req, res) => {
-  const id = req.baseUrl.slice(7);
-  console.log(id);
+  const id = req.params.id;
   var condition = id ? { item_id: { [Op.eq]: `${id}` } } : null;
 
   Items.findAll({
