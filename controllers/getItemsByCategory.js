@@ -1,12 +1,18 @@
 const db = require("../models");
 const Categories = db.categories;
+const Items = db.items;
 const Op = db.Sequelize.Op;
 
 exports.findAll = (req, res) => {
-  const title = req.query.title;
-  var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
-
-  Categories.findAll({ where: condition })
+  Categories.findAll({
+    attributes: ["category_name"],
+    include: [
+      {
+        model: Items,
+        as: "Category",
+      },
+    ],
+  })
     .then((data) => {
       res.send(data);
     })

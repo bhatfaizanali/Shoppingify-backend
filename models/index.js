@@ -28,7 +28,7 @@ db.listItems.belongsTo(db.items, {
   foreignKey: "item_id",
 });
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync().then(() => {
   console.log(`Database & tables created!`);
 });
 

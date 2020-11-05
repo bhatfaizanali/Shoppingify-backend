@@ -16,10 +16,8 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const db = require("./models");
-db.sequelize.sync();
-
-app.use("/", require("./routes/homeRoute"));
+app.use("/", require("./routes/categoriesRoute"));
+app.use("/items", require("./routes/itemsRoute"));
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
