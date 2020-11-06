@@ -5,16 +5,20 @@ const Op = db.Sequelize.Op;
 
 exports.findAll = (req, res) => {
   Categories.findAll({
-    attributes: ["category_name"],
+    attributes: ["category_id", "category_name"],
     include: [
       {
         model: Items,
-        as: "Category",
+        as: "Item",
       },
     ],
   })
     .then((data) => {
-      res.send(data);
+      let resObj = {};
+      data.forEach((element) => {
+        resObj[element.category_id] = element;
+      });
+      res.send(resObj);
     })
     .catch((err) => {
       res.status(500).send({

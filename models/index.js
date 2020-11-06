@@ -12,7 +12,7 @@ db.lists = require("./listsModel")(sequelize, Sequelize);
 db.listItems = require("./listItemsModel")(sequelize, Sequelize);
 
 db.categories.hasMany(db.items, {
-  as: "Category",
+  as: "Item",
   foreignKey: "category_id",
 });
 db.items.belongsTo(db.categories, {
