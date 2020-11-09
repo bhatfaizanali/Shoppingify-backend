@@ -20,7 +20,7 @@ db.items.belongsTo(db.categories, {
   foreignKey: "category_id",
 });
 db.lists.hasMany(db.listItems, {
-  as: "List",
+  as: "ListItem",
   foreignKey: "list_id",
 });
 db.listItems.belongsTo(db.items, {

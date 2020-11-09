@@ -8,7 +8,7 @@ const schema = Joi.object({
   item_name: Joi.string().alphanum().min(1).max(50).required(),
   item_note: Joi.string().alphanum().min(1).max(1000),
   imgURL: Joi.string().alphanum().min(1).max(100),
-  category_id: Joi.number().integer().min(1).max(2013).required(),
+  category_id: Joi.any().required(),
   category_name: Joi.string().alphanum().min(1).max(50),
 });
 exports.createItem = (request, response) => {
@@ -24,6 +24,7 @@ exports.createItem = (request, response) => {
             item_note: request.body.item_note,
             imgURL: request.body.imgURL,
             category_id: request.body.category_id,
+            category_name: request.body.category_name,
           }).then((created) => {
             if (created) {
               response.send(created).end();
@@ -32,15 +33,16 @@ exports.createItem = (request, response) => {
             }
           });
         } else {
-          const createdCtaegory = Categories.create({
+          return Categories.create({
             category_id: request.body.category_id,
             category_name: request.body.category_name,
           }).then((createdCategory) => {
-            const created = Items.create({
+            return Items.create({
               item_name: request.body.item_name,
               item_note: request.body.item_note,
               imgURL: request.body.imgURL,
               category_id: createdCategory.category_id,
+              category_name: createdCategory.category_name,
             }).then((created) => {
               if (created) {
                 response.send(created).end();

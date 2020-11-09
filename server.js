@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/categories", require("./routes/categoriesRoute"));
 app.use("/items", require("./routes/itemsRoute"));
+app.use("/lists", require("./routes/listsRoute"));
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
