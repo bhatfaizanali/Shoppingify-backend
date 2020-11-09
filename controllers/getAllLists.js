@@ -10,7 +10,7 @@ exports.findAll = (req, res) => {
     include: [
       {
         model: ListItems,
-        attributes: ["qty", "bought"],
+        attributes: ["qty", "bought", "item_id"],
         as: "ListItem",
         include: [
           {
