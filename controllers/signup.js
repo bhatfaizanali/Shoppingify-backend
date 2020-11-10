@@ -8,13 +8,14 @@ const Users = db.users;
 const schema = Joi.object({
   first_name: Joi.string().alphanum().min(1).max(50).required(),
   last_name: Joi.string().alphanum().min(1).max(50).required(),
-  email: Joi.string().alphanum().min(1).max(50).required(),
+  email: Joi.any(),
   password: Joi.string().alphanum().min(1).max(50).required(),
 });
 exports.createUser = async (request, response) => {
   if (!schema.validate(request.body).error) {
     try {
       const hashedPassword = await bcrypt.hash(request.body.password, 10);
+      console.log(hashedPassword);
       const creaedUser = await Users.create({
         first_name: request.body.first_name,
         last_name: request.body.last_name,
