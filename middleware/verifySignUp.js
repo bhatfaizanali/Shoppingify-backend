@@ -18,6 +18,6 @@ checkDuplicateEmail = (req, res, next) => {
   });
 };
 
-const verifySignUp = { checkDuplicateUsernameOrEmail };
+const verifySignUp = { checkDuplicateEmail };
 
 module.exports = verifySignUp;
