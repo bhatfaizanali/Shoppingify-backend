@@ -5,8 +5,8 @@ const items = require("../controllers/getItemsByCategory");
 const create = require("../controllers/createItem");
 const itemDetails = require("../controllers/getItemDetails");
 
-router.get("/", items.findAll);
-router.get("/:id", itemDetails.findAll);
-router.post("/", create.createItem);
+router.get("/", [authJwt.verifyToken], items.findAll);
+router.get("/:id", [authJwt.verifyToken], itemDetails.findAll);
+router.post("/", [authJwt.verifyToken], create.createItem);
 
 module.exports = router;
