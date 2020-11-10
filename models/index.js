@@ -10,6 +10,7 @@ db.categories = require("./categoriesModel")(sequelize, Sequelize);
 db.items = require("./itemsModel")(sequelize, Sequelize);
 db.lists = require("./listsModel")(sequelize, Sequelize);
 db.listItems = require("./listItemsModel")(sequelize, Sequelize);
+db.users = require("./usersModel")(sequelize, Sequelize);
 
 db.categories.hasMany(db.items, {
   as: "Item",
@@ -17,7 +18,7 @@ db.categories.hasMany(db.items, {
 });
 db.items.belongsTo(db.categories, {
   as: "Item",
-  foreignKey: "category_id",
+  foreignKey: "item_id",
 });
 db.lists.hasMany(db.listItems, {
   as: "ListItem",
@@ -26,6 +27,31 @@ db.lists.hasMany(db.listItems, {
 db.listItems.belongsTo(db.items, {
   as: "ListItem",
   foreignKey: "item_id",
+});
+
+db.users.hasMany(db.categories, {
+  as: "Category",
+  foreignKey: "user_id",
+});
+db.categories.belongsTo(db.users, {
+  as: "Category",
+  foreignKey: "user_id",
+});
+db.users.hasMany(db.items, {
+  as: "Product",
+  foreignKey: "user_id",
+});
+db.items.belongsTo(db.users, {
+  as: "Product",
+  foreignKey: "user_id",
+});
+db.users.hasMany(db.lists, {
+  as: "List",
+  foreignKey: "user_id",
+});
+db.lists.belongsTo(db.users, {
+  as: "List",
+  foreignKey: "user_id",
 });
 
 sequelize.sync().then(() => {
